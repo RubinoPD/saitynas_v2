@@ -56,7 +56,24 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   const email = document.getElementById('email').value;
   const message = document.getElementById('message').value;
 
-  // Display the pop up message
-  alert(`Thank you ${name} for reaching out! We will respond as soon as possible!\n\nYour email: ${email}.\nYour message: ${message}`);
+  // Populate dialog with user inputs
+  const dialogMessage = `Thank you, ${name}, for reaching out! 
+  <br><br>
+  <u>We received your message and respond as soon as possible!</u>
+  <br><br>
+  <strong>Your email:</strong> ${email}
+  <br><br>
+  <strong>Your message:</strong> ${message}`;
 
-})
+  document.getElementById('thankYouMessage').innerHTML = dialogMessage;
+
+  // Show dialog
+  const dialog = document.getElementById('thankYouDialog');
+  dialog.showModal();
+
+  // Close the dialog when close button is pressed
+  document.getElementById('closeDialog').addEventListener('click', () => {
+    dialog.close();
+  });
+
+});
