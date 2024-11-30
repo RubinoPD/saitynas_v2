@@ -59,7 +59,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   // Populate dialog with user inputs
   const dialogMessage = `Thank you, ${name}, for reaching out! 
   <br><br>
-  <u>We received your message and respond as soon as possible!</u>
+  <u>I received your message and will respond as soon as possible!</u>
   <br><br>
   <strong>Your email:</strong> ${email}
   <br><br>
