@@ -169,13 +169,15 @@
           </div>
           <div class="col-12">
             <label for="message" class="form-label">Message:</label>
-            <textarea id="message" name="message" rows="4" class="form-control" required placeholder="Required"></textarea>
+            <textarea id="message" name="message" rows="4" maxlength="255" class="form-control" required placeholder="Required"></textarea>
+            <small id="charCount">255 characters remaining</small>
           </div>
           <div class="col-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>
-
+        
+        <!-- Pop up -->
         <dialog id="thankYouDialog">
           <div id="dialogContent">
             <p id="thankYouMessage"></p>

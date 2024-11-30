@@ -77,3 +77,12 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   });
 
 });
+
+// Update the character count dynamically
+const messageInput = document.getElementById('message');
+const charCountDisplay = document.getElementById('charCount');
+
+messageInput.addEventListener('input', () => {
+  const remaining = 255 - messageInput.value.length;
+  charCountDisplay.textContent = `${remaining} characters remaining.`
+})
