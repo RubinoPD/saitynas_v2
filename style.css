@@ -10,6 +10,10 @@ h1, h2, p {
   margin: 10px 0;
 }
 
+textarea:focus::placeholder, input:focus::placeholder {
+  color: transparent;
+}
+
 .hidden {
   opacity: 0;
 }
@@ -137,6 +141,15 @@ input, textarea {
   border-radius: 4px;
   color: black;
   font-family: inherit;
+}
+
+input.invalid {
+  border-color: red;
+}
+
+#errorMessageName, #errorMessageEmail {
+  color: red;
+  display: none;
 }
 
 #submit-btn {
