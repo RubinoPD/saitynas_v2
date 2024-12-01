@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('passwordInput');
     const rulesList = document.getElementById('rulesList');
     const status = document.getElementById('status');
+
+    passwordInput.value = "";
   
     const rules = [
       {
@@ -47,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentRuleIndex < rules.length) {
             const {rule, description} = rules[currentRuleIndex];
             const listItem = document.createElement('li');
-
             listItem.textContent = description;
             listItem.setAttribute('data-rule', rule);
+            listItem.classList.add('invalid')
             rulesList.appendChild(listItem);
         }
     };
@@ -61,25 +63,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Validate password input
     passwordInput.addEventListener('input', () => {
       const password = passwordInput.value;
-      const currentRule = rules[currentRuleIndex];
+      let allValid = true;
   
-      if (currentRule) {
-        const ruleElement = document.querySelector(`[data-rule="${currentRule.rule}"]`);
-        if (currentRule.check(password)) {
+      // Check all rules up to the current one
+      for (let i = 0; i <= currentRuleIndex; i++) {
+        const {rule, check} = rules[i];
+        const ruleElement = document.querySelector(`[data-rule="${rule}"]`);
+
+        if (check(password)) {
             ruleElement.classList.add('valid');
             ruleElement.classList.remove('invalid');
-            status.textContent = '🎉 Rule completed!';
-
-            // Move to the next rule
-            currentRuleIndex++;
-            showNextRule();
-
         } else {
             ruleElement.classList.add('invalid');
             ruleElement.classList.remove('valid');
-            status.textContent = '⛔ Password does not meet the current rule.';
+            allValid = false;
         }
       }
+
+      if (allValid && currentRuleIndex < rules.length) {
+        // If all rules up to the current one are satisfied, move to the next rule
+        currentRuleIndex++;
+        showNextRule();
+        status.textContent = '🎉 Progressing to the next rule!';
+      } else if (!allValid){
+        status.textContent = '⛔ Fix the issues with your password!';
+      } else if (currentRuleIndex >= rules.length) {
+        status.textContent = '🎉 All rules satisfied! Your password is complete.';
+      }
+
+
     });
   });
   
