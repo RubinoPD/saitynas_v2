@@ -371,6 +371,17 @@ dialog::backdrop {
 }
 
 /* GAME SECTION */
+@media (max-width: 991.98px) { /* Bootstrap breakpoint for burger menu */
+  #arrow-1 {
+    rotate: 90deg;
+    margin-bottom: 12px;
+  }
+
+  .button {
+    margin-bottom: 20px;
+  }
+}
+
 #game {
   border-top: 7px dashed #000000;
 }
