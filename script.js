@@ -31,7 +31,6 @@ function validateName() {
 nameInput.addEventListener('input', validateName);
 
 // Handle form submission to show a pop up with the user inputs
-
 document.getElementById('contactForm').addEventListener('submit', function(event) {
 
   event.preventDefault(); // Prevent default submit behavior
@@ -60,6 +59,10 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   document.getElementById('closeDialog').addEventListener('click', () => {
     dialog.close();
   });
+
+  document.getElementById('name').value = "";
+  document.getElementById('email').value = "";
+  document.getElementById('message').value = "";
 
 });
 
