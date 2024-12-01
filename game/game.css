@@ -4,6 +4,44 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.buttons {
+    padding: 12px;
+    margin: 25px;
+    text-decoration: none;
+}
+
+a {
+    padding: 12px;
+    margin: 25px;
+    text-decoration: none;
+}
+
+#reset {
+    background-color: #f50;
+    border: 1px solid black;
+    border-radius: 12px;
+    font-weight: bolder;
+    color: black;
+}
+
+#reset:hover {
+    background-color: rgba(255, 85, 0, 0.815);
+    cursor: pointer;
+}
+
+#home {
+    background-color: #08c;
+    border: 1px solid black;
+    border-radius: 12px;
+    font-weight: bolder;
+    color: black;
+}
+
+#home:hover {
+    background-color: rgba(0, 136, 204, 0.681);
+    cursor: pointer;
+}
   
 .container {
     width: 100%;
