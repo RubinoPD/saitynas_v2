@@ -21,16 +21,6 @@ body {
   color: #ffffff;
 }
 
-#settingsContent {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-#applySettings, #closeSettings {
-  margin-top: 10px;
-}
-
 h1, h2, p {
   margin: 10px 0;
 }
@@ -74,8 +64,27 @@ textarea:focus::placeholder, input:focus::placeholder {
   text-decoration: underline;
 }
 
+#settingsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#applySettings, #closeSettings {
+  margin-top: 10px;
+}
+
 #settingsButton {
   background-color: #088B93;
+  margin-left: 15px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: 2px solid #000000;
+}
+
+#settingsButton:hover {
+  background-color: #088c939a;
+  border-color: #088c939a;
 }
 
 /* HERO SECTION */
