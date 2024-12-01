@@ -56,6 +56,14 @@ textarea:focus::placeholder, input:focus::placeholder {
   margin-left: 12px;
 }
 
+/* Adjust for smaller screens (burger menu active) */
+@media (max-width: 991.98px) { /* Bootstrap breakpoint for burger menu */
+  #settingsButton {
+      margin-left: 0;  
+      text-align: center; 
+  }
+}
+
 .navbar-dark .navbar-nav .nav-link {
   color: #fff;
 }
