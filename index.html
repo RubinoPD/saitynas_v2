@@ -28,10 +28,32 @@
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <button id="settingsButton" class="btn btn-secondary">Settings</button>
+        </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <!-- Settings Modal -->
+<dialog id="settingsModal">
+  <div id="settingsContent">
+      <h4>Settings</h4>
+      <label>
+          <input type="checkbox" id="themeToggle"> Dark Theme
+      </label>
+      <br><br>
+      <label for="captionSize">Caption Size:</label>
+      <input type="range" id="captionSize" min="12" max="36" value="30"> <span id="captionSizeValue">30px</span>
+      <br><br>
+      <label for="captionColor">Caption Color:</label>
+      <input type="color" id="captionColor" value="">
+      <br><br>
+      <button id="applySettings" class="btn btn-primary">Apply</button>
+      <button id="closeSettings" class="btn btn-secondary">Close</button>
+  </div>
+</dialog>
 
   <main>
     <section id="hero" class="text-center text-white d-flex align-items-center justify-content-center">

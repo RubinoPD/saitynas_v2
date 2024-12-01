@@ -86,3 +86,49 @@ messageInput.addEventListener('input', () => {
   const remaining = 255 - messageInput.value.length;
   charCountDisplay.textContent = `${remaining} characters remaining.`
 })
+
+// Open and close the settings modal
+const settingsButton = document.getElementById('settingsButton');
+const settingsModal = document.getElementById('settingsModal');
+const closeSettings = document.getElementById('closeSettings');
+
+settingsButton.addEventListener('click', () => settingsModal.showModal());
+closeSettings.addEventListener('click', () => settingsModal.close());
+
+// Apply settings
+const themeToggle = document.getElementById('themeToggle');
+const captionSize = document.getElementById('captionSize');
+const captionColor = document.getElementById('captionColor');
+const captionSizeValue = document.getElementById('captionSizeValue');
+
+document.getElementById('applySettings').addEventListener('click', () => {
+  //Toggle theme
+  if (themeToggle.checked) {
+    document.body.classList.add('dark-theme');
+    captionColor.value = "#ffffff";
+    captionSize.value = 30;
+  } else {
+    document.body.classList.remove('dark-theme');
+    captionColor.value = "#000000";
+    captionSize.value = 30;
+  }
+
+  // Change caption size
+  const captions = document.querySelectorAll('h2, h3, h4, h5, h6');
+  captions.forEach(caption => {
+    caption.style.fontSize = `${captionSize.value}px`;
+  });
+
+  // Change caption color
+  captions.forEach(caption => {
+    caption.style.color = captionColor.value;
+  });
+
+  settingsModal.close();
+
+})
+
+// Update caption size value
+captionSize.addEventListener('input', () => {
+  captionSizeValue.textContent = `${captionSize.value}px`;
+});

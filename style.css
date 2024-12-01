@@ -6,6 +6,31 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* :root {
+  color-scheme: light dark;
+}
+
+body {
+  color: ligth-dark(#333b3c, #efefec);
+  background-color: light-dark(#efedea, #223a2c);
+} */
+
+/* Dark theme */
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+#settingsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#applySettings, #closeSettings {
+  margin-top: 10px;
+}
+
 h1, h2, p {
   margin: 10px 0;
 }
@@ -47,6 +72,10 @@ textarea:focus::placeholder, input:focus::placeholder {
 
 .navbar-dark .navbar-nav .nav-link:hover {
   text-decoration: underline;
+}
+
+#settingsButton {
+  background-color: #088B93;
 }
 
 /* HERO SECTION */
