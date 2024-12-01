@@ -11,7 +11,6 @@ document.querySelectorAll('nav a').forEach(anchor => {
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const errorMessageName = document.getElementById('errorMessageName');
-// const errorMessageEmail = document.getElementById('errorMessageEmail');
 
 
 function validateName() {
@@ -28,22 +27,8 @@ function validateName() {
   }
 }
 
-// function validateEmail() {
-//   const email = emailInput.value.trim();
-//   const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-//   if (email && !isValid) {
-//     email.classList.add('invalid');
-//     errorMessageEmail.style.display = 'block';
-//   } else {
-//     email.classList.remove('invalid');
-//     errorMessageEmail.style.display = 'none';
-//   }
-
-// }
 
 nameInput.addEventListener('input', validateName);
-// emailInput.addEventListener('input', validateEmail);
 
 // Handle form submission to show a pop up with the user inputs
 
