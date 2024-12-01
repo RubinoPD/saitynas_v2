@@ -40,6 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Password must include a Roman numeral.',
             check: (password) => /I|V|X|L|C|D|M/.test(password),
         },
+        {
+            rule: 'egg',
+            description: '🥚 This is my chicken Paul. He hasn’t hatched yet. Please put him in your password and keep him safe.',
+            check: (password) => password.includes('🥚'),
+        },
+        {
+            rule: 'fire',
+            description: 'Oh no! Your password with the egg is on fire 🔥. Quick, put it out and save the chicken! ... oh and your password of course!',
+            check: (password) => password.includes('🚰💦'),
+        },
     ];
 
     let currentRuleIndex = 0;
@@ -86,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showNextRule();
         status.textContent = '🎉 Progressing to the next rule!';
       } else if (allValid && currentRuleIndex === rules.length - 1){
-        status.textContent = '🎉 All rules satisfied! Your password is complete.';
+        status.textContent = 'Hoorah! 🎉 You saved your egg.. I mean password and all rules are satisfied! Your password, just like you, is complete and perfect. ❤️';
       } else {
         status.textContent = '⛔ Fix the issues with your password!';
       }
