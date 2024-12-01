@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         rule: 'length',
         description: 'Password must be at least 5 characters long.',
-        check: (password) => password.length >= 8,
+        check: (password) => password.length >= 5,
       },
       {
         rule: 'uppercase',
@@ -80,15 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      if (allValid && currentRuleIndex < rules.length) {
+      if (allValid && currentRuleIndex < rules.length - 1) {
         // If all rules up to the current one are satisfied, move to the next rule
         currentRuleIndex++;
         showNextRule();
         status.textContent = '🎉 Progressing to the next rule!';
-      } else if (!allValid){
-        status.textContent = '⛔ Fix the issues with your password!';
-      } else if (currentRuleIndex >= rules.length) {
+      } else if (allValid && currentRuleIndex === rules.length - 1){
         status.textContent = '🎉 All rules satisfied! Your password is complete.';
+      } else {
+        status.textContent = '⛔ Fix the issues with your password!';
       }
 
 
