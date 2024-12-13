@@ -258,13 +258,31 @@ textarea:focus::placeholder, input:focus::placeholder {
   transition: transform 0.3s ease;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.portfolio-container {
+  position: relative;
 }
 
-.card.fade {
+.portfolio-card {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.portfolio-card.expanded {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 40%;
+  z-index: 10;
+}
+
+.portfolio-card.fade {
   opacity: 0.2;
-  transform: scale(0.9);
+}
+
+.portfolio-card:hover {
+  transform: scale(1.05);
 }
 
 .card-title {
@@ -295,19 +313,30 @@ textarea:focus::placeholder, input:focus::placeholder {
 }
 
 #comments-section {
-  top: 20%;
-  right: 10%;
-  width: 35%;
-  max-height: 60%;
-  overflow-y: auto;
-  display: none;
-  z-index: 1000;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#comments-section.visible {
+  opacity: 1;
 }
 
 #comments-list p {
   margin: 0;
-  padding: 0px;
+  padding: 8px;
   border-bottom: 1px solid #ddd;
+  width: 100%;
+  text-align: center;
 }
 
 #comments-list p:last-child {

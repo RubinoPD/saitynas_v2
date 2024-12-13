@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  const cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll('.portfolio-card');
   const commentsSection = document.getElementById('comments-section');
   const commentsList = document.getElementById('comments-list');
 
@@ -17,13 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         commentsList.appendChild(commentElement);
       });
 
-      // Show comments section
-      commentsSection.style.display = 'block';
+      // Expand the hovered card
+      card.classList.add('expanded');
 
-      // Position comments section
-      const cardRect = card.getBoundingClientRect();
-      commentsSection.style.top = `${cardRect.top + window.scrollY}px`;
-      commentsSection.style.left = `${cardRect.right + 20}px`;
+      // Show comments section
+      commentsSection.classList.remove('d-none');
+      commentsSection.classList.add('visible');
 
       // Fade other cards
       cards.forEach(otherCard => {
@@ -36,8 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     card.addEventListener('mouseleave', () => {
 
+      // Collapse the hovered card
+      cards.classList.remove('expanded');
+
       // Hide comments section
-      commentsSection.style.display = 'none';
+      commentsSection.classList.remove('visible');
+      setTimeout(() => {
+        commentsSection.classList.add('d-none');
+      }, 300); // Matches the CSS transition duration
 
       // Restore other cards
       cards.forEach(otherCard => {
