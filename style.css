@@ -244,6 +244,8 @@ textarea:focus::placeholder, input:focus::placeholder {
 
 }
 
+/* PORTFOLIO SECTION */
+
 .row {
   margin-top: 14px;
 }
@@ -258,6 +260,11 @@ textarea:focus::placeholder, input:focus::placeholder {
 
 .card:hover {
   transform: scale(1.05);
+}
+
+.card.fade {
+  opacity: 0.2;
+  transform: scale(0.9);
 }
 
 .card-title {
@@ -285,6 +292,26 @@ textarea:focus::placeholder, input:focus::placeholder {
 .card a:hover {
   background-color: #222;
   color: #fff;
+}
+
+#comments-section {
+  top: 20%;
+  right: 10%;
+  width: 35%;
+  max-height: 60%;
+  overflow-y: auto;
+  display: none;
+  z-index: 1000;
+}
+
+#comments-list p {
+  margin: 0;
+  padding: 0px;
+  border-bottom: 1px solid #ddd;
+}
+
+#comments-list p:last-child {
+  border-bottom: none;
 }
 
 /* CONTACT SECTION */

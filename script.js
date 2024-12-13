@@ -1,3 +1,56 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+  const cards = document.querySelectorAll('.card');
+  const commentsSection = document.getElementById('comments-section');
+  const commentsList = document.getElementById('comments-list');
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+
+      const comments = JSON.parse(card.getAttribute('data-comments'));
+
+      // Populate comments section
+      commentsList.innerHTML = '';
+      comments.forEach(comment => {
+        const commentElement = document.createElement('p');
+        commentElement.textContent = comment;
+        commentsList.appendChild(commentElement);
+      });
+
+      // Show comments section
+      commentsSection.style.display = 'block';
+
+      // Position comments section
+      const cardRect = card.getBoundingClientRect();
+      commentsSection.style.top = `${cardRect.top + window.scrollY}px`;
+      commentsSection.style.left = `${cardRect.right + 20}px`;
+
+      // Fade other cards
+      cards.forEach(otherCard => {
+        if (otherCard !== card) {
+          otherCard.classList.add('fade');
+        }
+      });
+
+    });
+
+    card.addEventListener('mouseleave', () => {
+
+      // Hide comments section
+      commentsSection.style.display = 'none';
+
+      // Restore other cards
+      cards.forEach(otherCard => {
+        otherCard.classList.remove('fade');
+      });
+
+    });
+
+  });
+
+});
+
+
 // Smooth scrolling
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -120,3 +173,4 @@ document.getElementById('applySettings').addEventListener('click', () => {
 captionSize.addEventListener('input', () => {
   captionSizeValue.textContent = `${captionSize.value}px`;
 });
+
